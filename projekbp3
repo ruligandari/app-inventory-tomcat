@@ -1,0 +1,136 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jan 14, 2021 at 03:33 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `projekbp3`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_barang`
+--
+
+CREATE TABLE `tbl_barang` (
+  `kd_barang` varchar(10) NOT NULL,
+  `id_transaksi` varchar(40) NOT NULL,
+  `tanggal` varchar(10) NOT NULL,
+  `nama_barang` varchar(30) NOT NULL,
+  `jenis` varchar(20) NOT NULL,
+  `jumlah` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_barang`
+--
+
+INSERT INTO `tbl_barang` (`kd_barang`, `id_transaksi`, `tanggal`, `nama_barang`, `jenis`, `jumlah`) VALUES
+('BRG007', 'WG-13fc1330-4664-4b63-aaa7-54995ce68fa7', '2020-12-24', 'Formula Sikat Gigi', 'MCK', '1'),
+('BRG002', 'WG-4b5333ee-d70d-4784-a776-9f94cc4e5822', '2020-12-22', 'Mouse Wireless', 'Elektronik', '1'),
+('BRG005', 'WG-4da560f1-3ec1-4a19-9566-a94c48f261cd', '2020-12-22', 'Pulpen Zeppelin', 'ATK', '1'),
+('BRG12', 'WG-57c48c3a-ea74-420b-ac45-40a635486cb5', '2021-01-14', 'Earphone Samsung', 'Elektronik', '9'),
+('BRG001', 'WG-6d9a04c8-41fe-4557-bf10-000a92358701', '2020-12-22', 'MikroTik RB750GR3', 'Elektronik', '1'),
+('BRG010', 'WG-8298e98a-1351-4052-a3d9-8663014df73c', '2020-12-24', 'Samsung J2 Prime', 'Gadget', '1'),
+('BRG003', 'WG-8dc36a7f-78db-456c-9080-ac278902a070', '2020-12-22', 'iPhone 12 Pro Max', 'Elektronik', '2'),
+('BRG012', 'WG-90ea057d-771b-4be1-b40d-a400126d8b56', '2020-12-25', 'Hardisk Internal', 'Elektronik', '1'),
+('BRG006', 'WG-a07b2f50-33c6-4477-a8ef-8d9a3a0eddc2', '2020-12-23', 'Pensil 2B', 'ATK', '1'),
+('BRG009', 'WG-c17a8ac7-27f5-4f25-8137-5103a37eefd1', '2020-12-24', 'Xiaomi Redmi 4x', 'Gadget', '1'),
+('BRG008', 'WG-cdf446ac-aae6-4d0a-b234-c1ded4874067', '2020-12-24', 'Buku BigBoss', 'ATK', '1'),
+('BRG004', 'WG-d041ee95-be8d-48b7-99f2-a7b029ac0ca8', '2020-12-24', 'Tenda Dome 4 Person', 'Alat Outdoor', '1'),
+('BRG011', 'WG-f4d917bb-85e7-4bef-8dc3-679a13df34c7', '2020-12-25', 'Mouse Pade Logitech', 'Elektronik', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_jenis`
+--
+
+CREATE TABLE `tbl_jenis` (
+  `id_jenis` varchar(20) NOT NULL,
+  `jenis` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_jenis`
+--
+
+INSERT INTO `tbl_jenis` (`id_jenis`, `jenis`) VALUES
+('001', 'Elektronik'),
+('002', 'MCK'),
+('003', 'ATK'),
+('004', 'Alat Outdoor'),
+('005', 'Gadget');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `id_user` int(5) NOT NULL,
+  `nama` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id_user`, `nama`, `username`, `password`) VALUES
+(1, 'Ruli Gandari', 'admin@admin.com', 'ruli'),
+(2, 'Asep Yandi', 'asep@asep.com', 'asep');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_barang`
+--
+ALTER TABLE `tbl_barang`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
+-- Indexes for table `tbl_jenis`
+--
+ALTER TABLE `tbl_jenis`
+  ADD PRIMARY KEY (`id_jenis`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
